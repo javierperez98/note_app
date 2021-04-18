@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-var fs = require("fs");
+const fs = require("fs");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -8,12 +8,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-app.get("/notes", (req, res) =>
-	res.sendFile(path.join(__dirname, "public/notes.html"))
+app.get("/", (req, res) =>
+	res.sendFile(path.join(__dirname, "public/index.html"))
 );
 
-app.get("*", (req, res) =>
-	res.sendFile(path.join(__dirname, "public/index.html"))
+app.get("/notes", (req, res) =>
+	res.sendFile(path.join(__dirname, "public/notes.html"))
 );
 
 app.post("/api/notes", function (req, res) {
@@ -40,12 +40,19 @@ app.post("/api/notes", function (req, res) {
 });
 
 app.get("/api/notes", function (req, res) {
-	fs.readFile(__dirname + "/db/db.json", "utf8", function (error, data) {
+	fs.readFile(__dirname + "/db/db.json", "utf8", function (error, notes) {
 		if (error) {
 			return console.log(error);
 		}
-		res.json(JSON.parse(data));
+		notes = JSON.parse(notes);
+		notes.forEach((notes) => {
+			console.log(notes.title);
+		});
 	});
 });
+
+app.get("*", (req, res) =>
+	res.sendFile(path.join(__dirname, "public/index.html"))
+);
 
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));

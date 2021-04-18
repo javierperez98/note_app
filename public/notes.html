@@ -30,7 +30,7 @@
 			<div class="row">
 				<div class="col-4 list-container">
 					<div class="card">
-						<ul class="list-group"></ul>
+						<ul class="list-group saved-notes-list"></ul>
 					</div>
 				</div>
 				<div class="col-8">
@@ -44,6 +44,22 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			fetch("/api/notes", {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			})
+				.then((response) => response.json())
+				.then((notes) => {
+					console.log(notes);
+					notes.forEach((notes) => {});
+				})
+				.catch((error) => {
+					console.error(error);
+				});
+		</script>
 		<script src="/assets/js/index.js"></script>
 	</body>
 </html>
