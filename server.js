@@ -28,7 +28,7 @@ app.post("/api/notes", function (req, res) {
 		}
 		addNote = JSON.parse(addNote);
 
-		var i = addNote.length;
+		var i = addNote.length + 1;
 		const newNote = { title: req.body.title, text: req.body.text, id: i };
 		const userNote = addNote.concat(newNote);
 
