@@ -42,7 +42,14 @@ npm install
 
 <!-- Provide instructions and examples for use. Include screenshots as needed. -->
 
--
+- When you got to the web page this is the home page and click get started.
+  ![Note Home Page](public/assets/images/home.png)
+- After that you are brought to the Notes page where you can see and write notes.
+  ![Note Page](public/assets/images/notes.png)
+- You will have saved notes in the left side of the web page and will display.
+  ![Note Saved](public/assets/images/saved.png)
+- You can click on the saved notes to display them.
+  ![Note Displayed](public/assets/images/typed.png)
 
 ## Credits
 
