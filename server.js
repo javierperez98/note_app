@@ -17,15 +17,20 @@ app.get("/notes", (req, res) =>
 	res.sendFile(path.join(__dirname, "public/notes.html"))
 );
 
+app.get("/api/notes", (req, res) =>
+	res.sendFile(path.join(__dirname, "/db/db.json"))
+);
+
 app.post("/api/notes", function (req, res) {
-	fs.readFile(__dirname + "/db/db.json", "utf8", function (error, notes) {
+	fs.readFile(__dirname + "/db/db.json", "utf8", function (error, addNote) {
 		if (error) {
 			return console.log(error);
 		}
-		notes = JSON.parse(notes);
+		addNote = JSON.parse(addNote);
 
-		var newNote = { title: req.body.title, text: req.body.text };
-		var userNote = notes.concat(newNote);
+		var i = addNote.length;
+		const newNote = { title: req.body.title, text: req.body.text, id: i };
+		const userNote = addNote.concat(newNote);
 
 		fs.writeFile(
 			__dirname + "/db/db.json",
@@ -41,14 +46,11 @@ app.post("/api/notes", function (req, res) {
 });
 
 app.get("/api/notes", function (req, res) {
-	fs.readFile(__dirname + "/db/db.json", "utf8", function (error, notes) {
+	fs.readFile(__dirname + "/db/db.json", "utf8", function (error, addNote) {
 		if (error) {
 			return console.log(error);
 		}
-		notes = JSON.parse(notes);
-		notes.forEach((notes) => {
-			console.log(notes.title);
-		});
+		addNote = JSON.parse(addNote);
 	});
 });
 
