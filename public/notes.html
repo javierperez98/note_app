@@ -44,22 +44,6 @@
 				</div>
 			</div>
 		</div>
-		<script>
-			fetch("/api/notes", {
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			})
-				.then((response) => response.json())
-				.then((notes) => {
-					console.log(notes);
-					notes.forEach((notes) => {});
-				})
-				.catch((error) => {
-					console.error(error);
-				});
-		</script>
 		<script src="/assets/js/index.js"></script>
 	</body>
 </html>
