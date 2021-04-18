@@ -23,34 +23,36 @@ app.get("/api/notes", (req, res) =>
 
 app.post("/api/notes", function (req, res) {
 	fs.readFile(__dirname + "/db/db.json", "utf8", function (error, addNote) {
-		if (error) {
+		if (!error) {
+			addNote = JSON.parse(addNote);
+
+			var i = addNote.length + 1;
+			const newNote = { title: req.body.title, text: req.body.text, id: i };
+			const userNote = addNote.concat(newNote);
+
+			fs.writeFile(
+				__dirname + "/db/db.json",
+				JSON.stringify(userNote),
+				function (error, data) {
+					if (error) {
+						return error;
+					}
+					res.json(userNote);
+				}
+			);
+		} else {
 			return console.log(error);
 		}
-		addNote = JSON.parse(addNote);
-
-		var i = addNote.length + 1;
-		const newNote = { title: req.body.title, text: req.body.text, id: i };
-		const userNote = addNote.concat(newNote);
-
-		fs.writeFile(
-			__dirname + "/db/db.json",
-			JSON.stringify(userNote),
-			function (error, data) {
-				if (error) {
-					return error;
-				}
-				res.json(userNote);
-			}
-		);
 	});
 });
 
 app.get("/api/notes", function (req, res) {
 	fs.readFile(__dirname + "/db/db.json", "utf8", function (error, addNote) {
-		if (error) {
+		if (!error) {
+			addNote = JSON.parse(addNote);
+		} else {
 			return console.log(error);
 		}
-		addNote = JSON.parse(addNote);
 	});
 });
 
