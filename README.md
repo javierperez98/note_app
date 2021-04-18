@@ -1,111 +1,92 @@
-# 11 Express.js: Note Taker
+# Note Taker App
 
-## Your Task
+![MIT](https://img.shields.io/github/license/microsoft/vscode)
 
-Your assignment is to modify starter code to create an application called Note Taker that can be used to write and save notes. This application will use an Express.js back end and will save and retrieve note data from a JSON file.
+## Description
 
-The application’s front end has already been created. It's your job to build the back end, connect the two, and then deploy the entire application to Heroku.
+<!-- Provide a short description explaining the what, why, and how of your project.
+What was your motivation? Why did you build this project? What problem does it solve? What did you learn? -->
 
-## User Story
+- In this project I created an app that uses node.js, express.js and javasript to create a note taking app.
+- I used get and post routes to create, get, save and display notes created by the user. The notes are stored in a seperate file.
+- I learned how to store data in a seperate file and call upon it to display the information.
 
-```
-AS A small business owner
-I WANT to be able to write and save notes
-SO THAT I can organize my thoughts and keep track of tasks I need to complete
-```
+## Table of Contents
 
-## Acceptance Criteria
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [Questions](#questions)
 
-```
-GIVEN a note-taking application
-WHEN I open the Note Taker
-THEN I am presented with a landing page with a link to a notes page
-WHEN I click on the link to the notes page
-THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column
-WHEN I enter a new note title and the note’s text
-THEN a Save icon appears in the navigation at the top of the page
-WHEN I click on the Save icon
-THEN the new note I have entered is saved and appears in the left-hand column with the other existing notes
-WHEN I click on an existing note in the list in the left-hand column
-THEN that note appears in the right-hand column
-WHEN I click on the Write icon in the navigation at the top of the page
-THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
+## Installation
+
+<!-- What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running. -->
+
+```md
+To install copy and paste either the SSH or HTTPS key and run it in either Bash (PC Users) or Terminal (MAC Users) using the git clone command.
+
+SSH key: git clone git@github.com:javierperez98/note_app.git
+HTTPS key : git clone https://github.com/javierperez98/note_app.git
 ```
 
-## Getting Started
+```md
+Next you'll have to install all the required node modules by opening the index.js file using terminal/bash and typing in the following command.
 
-The application should have a `db.json` file on the back end that will be used to store and retrieve notes using the `fs` module.
+npm i
+or
+npm install
+```
 
-The following HTML routes should be created:
+## Usage
 
-- `GET /notes` should return the `notes.html` file.
+<!-- Provide instructions and examples for use. Include screenshots as needed. -->
 
-- `GET *` should return the `index.html` file.
+-
 
-The following API routes should be created:
+## Credits
 
-- `GET /api/notes` should read the `db.json` file and return all saved notes as JSON.
+<!-- List your collaborators, if any, with links to their GitHub profiles. Links to websites or resources. -->
 
-- `POST /api/notes` should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved (look into `npm` packages that could do this for you).
+- https://www.google.com
+- https://nodejs.org
+- https://developer.mozilla.org/en-US/
+- https://w3schools.com
+- https://expressjs.com
+- https://heroku.com
+- https://stackoverflow.com/
+- [Christian Payan](https://github.com/ChrisPayan)
 
-## Bonus
+## License
 
-You haven’t learned how to handle DELETE requests, but this application has that functionality in the front end. As a bonus, see if you can add the DELETE route to the application using the following guideline:
+<!-- If you need help choosing a license, refer to https://choosealicense.com/ -->
 
-- `DELETE /api/notes/:id` should receive a query parameter containing the id of a note to delete. In order to delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
+MIT License
 
-## Grading Requirements
+Copyright (c) 2021 [Javier Perez]
 
-This homework is graded based on the following criteria:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-### Technical Acceptance Criteria: 40%
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-- Satisfies all of the preceding acceptance criteria plus the following:
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-  - Application front end must connect to an Express.js back end.
+## Questions
 
-  - Application back end must store notes with unique IDs in a JSON file.
+Contact me for any questions you might have.
 
-  - <mark>Application must be deployed to Heroku.</mark>
-
-### Deployment: 36%
-
-- Application deployed at live URL.
-
-- Application loads with no errors.
-
-- Application GitHub URL submitted.
-
-- GitHub repository contains application code.
-
-### Application Quality: 11%
-
-- Application console is free of errors.
-
-### Repository Quality: 13%
-
-- Repository has a unique name.
-
-- Repository follows best practices for file structure and naming conventions.
-
-- Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-- Repository contains multiple descriptive commit messages.
-
-- Repository contains quality README file with description, screenshot, and link to deployed application.
-
-### Bonus: +10 Points
-
-- Application allows users to delete notes.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-- The URL of the functional, deployed application.
-
-- The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
----
-
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+- GitHub: [javierperez98](https://github.com/javierperez98)
+- Email: javier21perez98@gmail.com
+- LinkedIn: [javierperez98](https://www.linkedin.com/in/javier-perez98/)

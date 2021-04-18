@@ -22,13 +22,16 @@ app.get("/api/notes", (req, res) =>
 );
 
 app.post("/api/notes", (req, res) => {
-	fs.readFile(__dirname + "/db/db.json", "utf8", (error, addNote) => {
+	fs.readFile(__dirname + "/db/db.json", "utf8", (error, listNotes) => {
 		if (!error) {
-			addNote = JSON.parse(addNote);
+			listNotes = JSON.parse(listNotes);
 
-			var i = addNote.length + 1;
-			const newNote = { title: req.body.title, text: req.body.text, id: i };
-			const userNote = addNote.concat(newNote);
+			const newNote = {
+				title: req.body.title,
+				text: req.body.text,
+				id: listNotes.length + 1,
+			};
+			const userNote = listNotes.concat(newNote);
 
 			fs.writeFile(
 				__dirname + "/db/db.json",
@@ -47,9 +50,9 @@ app.post("/api/notes", (req, res) => {
 });
 
 app.get("/api/notes", (req, res) => {
-	fs.readFile(__dirname + "/db/db.json", "utf8", (error, addNote) => {
+	fs.readFile(__dirname + "/db/db.json", "utf8", (error, listNotes) => {
 		if (!error) {
-			addNote = JSON.parse(addNote);
+			listNotes = JSON.parse(listNotes);
 		} else {
 			return console.log(error);
 		}
