@@ -21,8 +21,8 @@ app.get("/api/notes", (req, res) =>
 	res.sendFile(path.join(__dirname, "/db/db.json"))
 );
 
-app.post("/api/notes", function (req, res) {
-	fs.readFile(__dirname + "/db/db.json", "utf8", function (error, addNote) {
+app.post("/api/notes", (req, res) => {
+	fs.readFile(__dirname + "/db/db.json", "utf8", (error, addNote) => {
 		if (!error) {
 			addNote = JSON.parse(addNote);
 
@@ -46,8 +46,8 @@ app.post("/api/notes", function (req, res) {
 	});
 });
 
-app.get("/api/notes", function (req, res) {
-	fs.readFile(__dirname + "/db/db.json", "utf8", function (error, addNote) {
+app.get("/api/notes", (req, res) => {
+	fs.readFile(__dirname + "/db/db.json", "utf8", (error, addNote) => {
 		if (!error) {
 			addNote = JSON.parse(addNote);
 		} else {
